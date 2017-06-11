@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as _ from 'underscore';
 import { CoursePage } from '../course/course';
+import { VideosPage } from '../videos/videos';
 import { RecommendationsPage } from '../recommendations/recommendations';
 import { Storage } from '@ionic/storage';
 
@@ -38,7 +39,10 @@ export class LearnPage {
                                 "Survival":{
                                             "key1":{
                                                         "display_image_link":"assets/img/survival.png",
-                                                        "materials_link": "a",
+                                                        "materials_link": {
+                                                          "type": "lesson",
+                                                          "category": "survival"
+                                                        },
                                                         "name":"Survival Lessons"
                                                     },
                                             "key2":{
@@ -53,14 +57,17 @@ export class LearnPage {
                                 "Science":{
                                             "key1":{
                                                         "display_image_link":"assets/img/solar_system.jpg",
-                                                        "materials_link":"a",
+                                                        "materials_link": {
+                                                          "type": "lesson",
+                                                          "category": "science"
+                                                        },
                                                         "name":"Solar System"
                                                     },
                                             "key2":{
                                                         "display_image_link":"assets/img/recommend.png",
                                                         "materials_link" : {
                                                           "type": "recommendations",
-                                                          "category": "survival"
+                                                          "category": "science"
                                                         },
                                                         "name":"Recommendations"
                                                     }
@@ -88,7 +95,11 @@ export class LearnPage {
       let data: any = {
         materialsLink: materialsLink
       };
-      this.navCtrl.push(CoursePage, data);
+      if(materialsLink.category === "survival") {
+        this.navCtrl.push(CoursePage, data);
+      } else {
+        this.navCtrl.push(VideosPage, data);
+      }
     }
   }
 }

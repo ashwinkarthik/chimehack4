@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as _ from 'underscore';
 import { Http } from '@angular/http';
-import values from 'object.values';
 
 /**
  * Generated class for the notificationPage page.
