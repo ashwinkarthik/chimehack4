@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, AlertController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
@@ -19,6 +19,8 @@ import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {SignupPage} from '../pages/signup/signup';
 import {ReqPage} from '../pages/req/req';
 import { Facebook } from '@ionic-native/facebook'
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+import {Push, PushObject, PushOptions} from "@ionic-native/push";
 
 export const firebaseConfig = {
   apiKey: "",
@@ -46,7 +48,8 @@ export const firebaseConfig = {
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +69,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    Facebook
+    Facebook,
+    Push,
   ]
 })
 export class AppModule {}

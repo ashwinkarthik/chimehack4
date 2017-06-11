@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the TestPage page.
@@ -13,8 +13,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'course.html',
 })
 export class CoursePage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+  public questionList: Array<Object>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  this.questionList = [];
   }
 
 
@@ -22,7 +23,7 @@ export class CoursePage {
     console.log('ionViewDidLoad CoursePage');
     console.log("Materials Link "+ this.navParams.get("materialsLink"));
   }
-  
+
  slides = [
     {
       title: "Welcome to the Docs!",
@@ -41,5 +42,31 @@ export class CoursePage {
     }
   ];
 
-}
+  public askHelp() {
+          let alert = this.alertCtrl.create({
+              title: "Ask the Mentor",
+              message: "Enter your Question to be sent along with screenshot.",
+              inputs: [
+                  {
+                      name: "question",
+                      placeholder: "Question"
+                  }
+              ],
+              buttons: [
+                  {
+                      text: "Cancel"
+                  },
+                  {
+                      text: "Save",
+                      handler: data => {
+                          this.questionList.push({
+                              name: data.question
+                          });
+                      }
+                  }
+              ]
+          });
+          alert.present();
+      }
 
+}

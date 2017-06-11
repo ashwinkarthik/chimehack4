@@ -26,4 +26,24 @@ page-login {
   .error-message .item-inner {
     border-bottom: 0 !important;
   }
+  h5 {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.01em;
+   margin: 10px 0 20px;
+}
+
+h5 span {
+    background:#fff;
+    padding:0 10px;
+}
+
+img.center{
+  display:block;
+  margin:0 auto;
+}
+.div1,.div2 {
+    display: inline-block;
+  }
 }
