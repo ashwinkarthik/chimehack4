@@ -33,14 +33,14 @@
      <ion-list-header>
     <h2>Medals Won!</h2>
     </ion-list-header>
-    <ion-item>
+    <ion-item *ngIf="hasMedalForSolarSystem"> 
       <ion-thumbnail item-start>
         <img src="assets/img/medal_solar_system.png">
       </ion-thumbnail>
       <h2>Survival Warrior</h2>
       <p></p>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="hasMedalForSurvival">
       <ion-thumbnail item-start>
         <img src="assets/img/medal_survival.png">
       </ion-thumbnail>

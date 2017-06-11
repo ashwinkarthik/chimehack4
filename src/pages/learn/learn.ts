@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as _ from 'underscore';
 import { CoursePage } from '../course/course';
 import { RecommendationsPage } from '../recommendations/recommendations';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LearnPage page.
@@ -18,10 +19,10 @@ import { RecommendationsPage } from '../recommendations/recommendations';
 export class LearnPage {
   materialsInfo: any;
   categoriesList: Array<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     this.materialsInfo = this.getMaterialsInfo();
     this.categoriesList = this.getCategoryList(this.materialsInfo);
-
+    storage.set("survival", null);
   }
 
   ionViewDidLoad() {
