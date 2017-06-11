@@ -17,6 +17,7 @@ import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {SignupPage} from '../pages/signup/signup';
 import {ReqPage} from '../pages/req/req';
 import { Facebook } from '@ionic-native/facebook'
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 export const firebaseConfig = {
   apiKey: "",
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
