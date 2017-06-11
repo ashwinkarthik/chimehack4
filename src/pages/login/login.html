@@ -1,14 +1,11 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>
-      Log In
-    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <img src="assets/images/school.png" imageViewer>
-
+  <img class="center" src="assets/images/lore_logo.png"  imageViewer>
+  <br>
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 
     <ion-item>
@@ -30,24 +27,22 @@
       *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
       <p>Your password needs more than 6 characters.</p>
     </ion-item>
-
+    <br>
     <button ion-button block type="submit" [disabled]="!loginForm.valid">
       Login
     </button>
-
   </form>
-
-  <button ion-button center (click)="facebookLogin()">
-    Log In with Facebook
+  <h5><span>OR</span></h5>
+  <button ion-button full (click)="facebookLogin()">
+    Continue with Facebook
   </button>
+  <br>
 
-  <button ion-button block clear (click)="goToSignup()">
-    Create a new account
-  </button>
-
-  <button ion-button block clear (click)="goToResetPassword()">
-    I forgot my password
-  </button>
+  <!--By logging in, you agree to the Lego Terms of Services and Privacy Policy.-->
+  <div class="button-bar full">
+    <button ion-button  color="light" (click)="goToResetPassword()">forgot password</button>
+    <button ion-button   color="light" (click)="goToSignup()">New Account</button>
+  </div>
 
 </ion-content>
 

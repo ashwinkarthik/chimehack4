@@ -15,7 +15,7 @@ import {ReqPage} from '../pages/req/req';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LearnPage;
+  rootPage:any = LoginPage;
   zone:NgZone;
   @ViewChild(Nav) nav: Nav;
 
@@ -35,7 +35,7 @@ export class MyApp {
       this.rootPage = LoginPage;
       unsubscribe();
     } else {
-      this.rootPage = LearnPage;
+      this.rootPage = LoginPage;
       unsubscribe();
     }
   });
@@ -54,7 +54,7 @@ export class MyApp {
   }
 
   go_to_learn(){
-    this.nav.setRoot(LearnPage);  
+    this.nav.setRoot(LearnPage);
   }
 
   go_to_course(){
