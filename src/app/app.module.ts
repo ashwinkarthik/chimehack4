@@ -12,6 +12,7 @@ import { CoursePage } from '../pages/course/course';
 import { NotificationPage } from '../pages/notification/notification';
 import { ProfilePage } from '../pages/profile/profile';
 import { RecommendationsPage } from '../pages/recommendations/recommendations';
+import { QuizPage } from '../pages/quiz/quiz';
 
 import { AngularFireModule } from 'angularfire2';
 import { AuthProvider } from '../providers/auth/auth';
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     CoursePage,
     NotificationPage,
     ProfilePage,
-    RecommendationsPage
+    RecommendationsPage,
+    QuizPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ export const firebaseConfig = {
     CoursePage,
     NotificationPage,
     ProfilePage,
-    RecommendationsPage
+    RecommendationsPage,
+    QuizPage
   ],
   providers: [
     StatusBar,

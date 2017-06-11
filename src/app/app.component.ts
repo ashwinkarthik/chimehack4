@@ -14,6 +14,7 @@ import {ReqPage} from '../pages/req/req';
 import {Push, PushObject, PushOptions} from "@ionic-native/push";
 import {DetailsPage} from "../pages/details/details";
 import { NotificationPage } from '../pages/notification/notification';
+import { QuizPage } from '../pages/quiz/quiz';
 
 @Component({
   templateUrl: 'app.html'
@@ -128,5 +129,9 @@ export class MyApp {
 
   go_to_notification(){
     this.nav.setRoot(NotificationPage);
+  }
+
+  go_to_quiz(){
+    this.nav.setRoot(QuizPage);
   }
 }
