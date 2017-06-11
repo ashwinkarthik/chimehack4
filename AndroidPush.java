@@ -16,8 +16,8 @@ public class AndroidPush {
      * USE THIS METHOD to send push notification
      */
     public static void main(String[] args) throws Exception {
-        String title = "My First Notification";
-        String message = "Hello, I'm push notification";
+        String title = "Need Help";
+        String message = "How many planets are there in solar system?";
         sendPushNotification(title, message);
     }
 

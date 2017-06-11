@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, AlertController } from 'ionic-angular';
+import { Platform, Nav, NavController, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
@@ -12,16 +12,19 @@ import { CoursePage } from '../pages/course/course';
 import {ReqPage} from '../pages/req/req';
 import {Push, PushObject, PushOptions} from "@ionic-native/push";
 import {DetailsPage} from "../pages/details/details";
+import { NotificationPage } from '../pages/notification/notification';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage:any = NotificationPage;
+  notificationLists:any;
   zone:NgZone;
   @ViewChild(Nav) nav: Nav;
 
-  constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
+  constructor(
+  public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
   firebase.initializeApp({
   apiKey: "AIzaSyDNdsiK6zkX62fDzoT1FuMNn93PmilauWw",
   authDomain: "chamhack4-3e876.firebaseapp.com",
@@ -31,13 +34,15 @@ export class MyApp {
   messagingSenderId: "1092410636914"
   });
   this.zone = new NgZone({});
+  this.notificationLists = [];
+  this.notificationLists.push('nayan');
   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
   this.zone.run( () => {
     if (!user) {
-      this.rootPage = LoginPage;
+      this.rootPage = NotificationPage;
       unsubscribe();
     } else {
-      this.rootPage = LoginPage;
+      this.rootPage = NotificationPage;
       unsubscribe();
     }
   });
@@ -80,6 +85,7 @@ export class MyApp {
       //if user using app and push notification comes
       if (data.additionalData.foreground) {
         // if application open, show popup
+        this.notificationLists.push(data.message);
         let confirmAlert = this.alertCtrl.create({
           title: 'New Notification',
           message: data.message,
@@ -91,10 +97,15 @@ export class MyApp {
             handler: () => {
               //TODO: Your logic here
               this.nav.push(DetailsPage, {message: data.message});
+              this.nav.push(NotificationPage, {message: 'nayan'});
             }
           }]
         });
         confirmAlert.present();
+        let notData: any = {
+          notificationLists: this.notificationLists
+        };
+        this.nav.push(NotificationPage, notData);
       } else {
         //if user NOT using app and push notification comes
         //TODO: Your logic on click of push notification directly
@@ -116,5 +127,9 @@ export class MyApp {
 
   go_to_course(){
     this.nav.setRoot(CoursePage);
+  }
+
+  go_to_notification(){
+    this.nav.setRoot(NotificationPage);
   }
 }

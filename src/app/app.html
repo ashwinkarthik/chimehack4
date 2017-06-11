@@ -3,20 +3,20 @@
         <ion-toolbar>
             <ion-title>Menu</ion-title>
         </ion-toolbar>
-    </ion-header>        
+    </ion-header>
     <ion-content>
         <ion-list>
-            <ion-item (click)="go_to_login()" menuClose>
-                Login
-            </ion-item>
             <ion-item (click)="go_to_learn()" menuClose>
                 Learn
             </ion-item>
              <ion-item (click)="go_to_course()" menuClose>
                 Course
             </ion-item>
+            <ion-item (click)="go_to_notification()" menuClose>
+               Message
+           </ion-item>
         </ion-list>
     </ion-content>
 </ion-menu>
- 
+
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
