@@ -10,7 +10,7 @@ import {
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { EmailValidator } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth/auth';
-import { HomePage } from '../home/home';
+import { LearnPage } from '../learn/learn';
 import {ResetPasswordPage} from '../reset-password/reset-password';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
@@ -62,7 +62,7 @@ export class LoginPage {
         .then((success) => {
           console.log("Firebase success: " + JSON.stringify(success));
           this.userProfile = success;
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(LearnPage);
         })
         .catch((error) => {
           console.log("Firebase failure: " + JSON.stringify(error));
@@ -86,7 +86,7 @@ export class LoginPage {
     }, error => {
         console.log(JSON.stringify(error.json()));
     });
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(LearnPage);
 
   //this.loading.present();
   }

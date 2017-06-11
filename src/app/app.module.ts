@@ -6,8 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage'
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { LearnPage } from '../pages/learn/learn';
+import { CoursePage } from '../pages/course/course';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AuthProvider } from '../providers/auth/auth';
@@ -27,11 +29,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    LoginPage,
+    LearnPage,
     LoginPage,
     ResetPasswordPage,
     SignupPage,
-    ReqPage
+    ReqPage,
+    CoursePage
   ],
   imports: [
     BrowserModule,
@@ -43,11 +47,13 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    LoginPage,
+    LearnPage,
     LoginPage,
     ResetPasswordPage,
     SignupPage,
     ReqPage,
+    CoursePage
   ],
   providers: [
     StatusBar,

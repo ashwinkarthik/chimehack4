@@ -2,20 +2,20 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { LearnPage } from '../pages/learn/learn';
 import { NgZone } from '@angular/core';
 import firebase from 'firebase';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {SignupPage} from '../pages/signup/signup';
+import { CoursePage } from '../pages/course/course';
 import {ReqPage} from '../pages/req/req';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any;
+  rootPage:any = LearnPage;
   zone:NgZone;
   @ViewChild(Nav) nav: Nav;
 
@@ -35,7 +35,7 @@ export class MyApp {
       this.rootPage = LoginPage;
       unsubscribe();
     } else {
-      this.rootPage = HomePage;
+      this.rootPage = LearnPage;
       unsubscribe();
     }
   });
@@ -46,13 +46,18 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-  }
 
-  go_to_home(Page){
-    this.nav.setRoot(HomePage);
   }
 
   go_to_login(){
     this.nav.setRoot(LoginPage);
+  }
+
+  go_to_learn(){
+    this.nav.setRoot(LearnPage);  
+  }
+
+  go_to_course(){
+    this.nav.setRoot(CoursePage);
   }
 }
