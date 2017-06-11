@@ -4,16 +4,18 @@ import { Platform } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
+import firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController, private http: Http, private platform: Platform, private storage: Storage) {
+  userProfile: any = null;
+  constructor(public navCtrl: NavController, private http: Http, private platform: Platform, private storage: Storage, private facebook: Facebook) {
       this.getItems();
-    
+
       storage.ready().then(() => {
           storage.set("myKey", "myVal");
 
@@ -21,11 +23,28 @@ export class HomePage {
               console.log("Value is "+ val);
           });
       });
-      
+
+  }
+
+  facebookLogin(): void {
+    this.facebook.login(['email']).then( (response) => {
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+        .credential(response.authResponse.accessToken);
+
+      firebase.auth().signInWithCredential(facebookCredential)
+        .then((success) => {
+          console.log("Firebase success: " + JSON.stringify(success));
+          this.userProfile = success;
+        })
+        .catch((error) => {
+          console.log("Firebase failure: " + JSON.stringify(error));
+      });
+
+    }).catch((error) => { console.log(error) });
   }
 
   public getItems() {
-      var url = 'assets/data/sample.json'; 
+      var url = 'assets/data/sample.json';
 
     if (this.platform.is('cordova') && this.platform.is('android')) {
         url = "/android_asset/www/" + url;

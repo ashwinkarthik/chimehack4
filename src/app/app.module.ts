@@ -10,6 +10,11 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 
 import { AngularFireModule } from 'angularfire2';
+import { AuthProvider } from '../providers/auth/auth';
+import {ResetPasswordPage} from '../pages/reset-password/reset-password';
+import {SignupPage} from '../pages/signup/signup';
+import {ReqPage} from '../pages/req/req';
+import { Facebook } from '@ionic-native/facebook'
 
 export const firebaseConfig = {
   apiKey: "",
@@ -23,7 +28,10 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ResetPasswordPage,
+    SignupPage,
+    ReqPage
   ],
   imports: [
     BrowserModule,
@@ -36,12 +44,17 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ResetPasswordPage,
+    SignupPage,
+    ReqPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    Facebook
   ]
 })
 export class AppModule {}
