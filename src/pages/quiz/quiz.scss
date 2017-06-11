@@ -1,0 +1,65 @@
+page-quiz {
+
+}
+
+p.question{
+	font-weight: bold; 
+	font-size:20px;
+}
+
+.right{
+	border-style: solid;
+	border-color:red;
+}
+
+.but{
+	 padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  background-color:white;
+  margin-bottom:10px; 
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width:100vw;
+
+}
+
+.wrong{
+ padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  margin-bottom:10px; 
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width:100vw;
+	background-color:red;	
+
+}
+
+
+
+
+
+.right{
+ padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  background-color:green;
+  margin-bottom:10px; 
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width:100vw;
+
+}

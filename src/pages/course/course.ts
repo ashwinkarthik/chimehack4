@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { QuizPage } from '../quiz/quiz';
 /**
  * Generated class for the TestPage page.
  *
@@ -22,6 +24,10 @@ export class CoursePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CoursePage');
     console.log("Materials Link "+ this.navParams.get("materialsLink"));
+  }
+  
+  takeQuiz(){
+    this.navCtrl.push(QuizPage,{});
   }
 
  slides = [

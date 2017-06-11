@@ -14,6 +14,11 @@ import { ProfilePage } from '../pages/profile/profile';
 import { RecommendationsPage } from '../pages/recommendations/recommendations';
 import { QuizPage } from '../pages/quiz/quiz';
 
+<<<<<<< HEAD
+=======
+import { VideosPage } from '../pages/videos/videos';
+
+>>>>>>> Added quiz portion
 import { AngularFireModule } from 'angularfire2';
 import { AuthProvider } from '../providers/auth/auth';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
@@ -44,7 +49,8 @@ export const firebaseConfig = {
     NotificationPage,
     ProfilePage,
     RecommendationsPage,
-    QuizPage
+    QuizPage,
+    VideosPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +73,8 @@ export const firebaseConfig = {
     NotificationPage,
     ProfilePage,
     RecommendationsPage,
-    QuizPage
+    QuizPage,
+    VideosPage
   ],
   providers: [
     StatusBar,
