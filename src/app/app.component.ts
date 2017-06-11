@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {SignupPage} from '../pages/signup/signup';
 import { CoursePage } from '../pages/course/course';
+import { ProfilePage } from '../pages/profile/profile';
 import {ReqPage} from '../pages/req/req';
 
 @Component({
@@ -48,16 +49,12 @@ export class MyApp {
     });
 
   }
-
-  go_to_login(){
-    this.nav.setRoot(LoginPage);
-  }
-
+  
   go_to_learn(){
     this.nav.setRoot(LearnPage);  
   }
 
-  go_to_course(){
-    this.nav.setRoot(CoursePage);
+  go_to_profile(){
+    this.nav.setRoot(ProfilePage);
   }
 }

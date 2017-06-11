@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import * as _ from 'underscore';
+import { CoursePage } from '../course/course';
+import { RecommendationsPage } from '../recommendations/recommendations';
 
 /**
  * Generated class for the LearnPage page.
@@ -32,28 +34,34 @@ export class LearnPage {
 
   getMaterialsInfo() {
     let perCategoryList: any = {
-                                "Solar System 1":{
+                                "Survival":{
                                             "key1":{
-                                                        "display_image_link":"assets/img/solar_system.jpg",
-                                                        "materials_link":"a",
-                                                        "name":"Solar System"
+                                                        "display_image_link":"assets/img/survival.png",
+                                                        "materials_link": "a",
+                                                        "name":"Survival Lessons"
                                                     },
                                             "key2":{
-                                                        "display_image_link":"assets/img/solar_system.jpg",
-                                                        "materials_link":"a",
-                                                        "name":"Solar System"
+                                                        "display_image_link":"assets/img/recommend.png",
+                                                        "materials_link": {
+                                                          "type": "recommendations",
+                                                          "category": "survival"
+                                                        },
+                                                        "name":"Recommendations"
                                                     }
                                          },
-                                 "Solar System 2":{
+                                "Science":{
                                             "key1":{
                                                         "display_image_link":"assets/img/solar_system.jpg",
                                                         "materials_link":"a",
                                                         "name":"Solar System"
                                                     },
                                             "key2":{
-                                                        "display_image_link":"assets/img/solar_system.jpg",
-                                                        "materials_link":"a",
-                                                        "name":"Solar System"
+                                                        "display_image_link":"assets/img/recommend.png",
+                                                        "materials_link" : {
+                                                          "type": "recommendations",
+                                                          "category": "survival"
+                                                        },
+                                                        "name":"Recommendations"
                                                     }
                                          }
 
@@ -67,5 +75,19 @@ export class LearnPage {
 
   getMaterialsListForCategory(category) {
       return _.values(this.materialsInfo[category]);
+  }
+
+  takeCourse(materialsLink) {
+
+    if(materialsLink.type == "recommendations") {
+       this.navCtrl.push(RecommendationsPage, {
+         category: materialsLink.category
+       });
+    } else {
+      let data: any = {
+        materialsLink: materialsLink
+      };
+      this.navCtrl.push(CoursePage, data);
+    }
   }
 }

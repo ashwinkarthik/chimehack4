@@ -9,6 +9,8 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { LearnPage } from '../pages/learn/learn';
 import { CoursePage } from '../pages/course/course';
+import { ProfilePage } from '../pages/profile/profile';
+import { RecommendationsPage } from '../pages/recommendations/recommendations';
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -35,7 +37,9 @@ export const firebaseConfig = {
     ResetPasswordPage,
     SignupPage,
     ReqPage,
-    CoursePage
+    CoursePage,
+    ProfilePage,
+    RecommendationsPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ export const firebaseConfig = {
     ResetPasswordPage,
     SignupPage,
     ReqPage,
-    CoursePage
+    CoursePage,
+    ProfilePage,
+    RecommendationsPage
   ],
   providers: [
     StatusBar,

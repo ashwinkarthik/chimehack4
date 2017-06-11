@@ -20,6 +20,7 @@ export class CoursePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CoursePage');
+    console.log("Materials Link "+ this.navParams.get("materialsLink"));
   }
   
  slides = [
