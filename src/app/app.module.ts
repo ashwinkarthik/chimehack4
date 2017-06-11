@@ -8,8 +8,15 @@ import { IonicStorageModule } from '@ionic/storage'
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { LearnPage } from '../pages/learn/learn';
+import { CoursePage } from '../pages/course/course';
+
 
 import { AngularFireModule } from 'angularfire2';
+import { AuthProvider } from '../providers/auth/auth';
+import {ResetPasswordPage} from '../pages/reset-password/reset-password';
+import {SignupPage} from '../pages/signup/signup';
+import {ReqPage} from '../pages/req/req';
+import { Facebook } from '@ionic-native/facebook'
 
 export const firebaseConfig = {
   apiKey: "",
@@ -23,7 +30,12 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     LoginPage,
-    LearnPage
+    LearnPage,
+    LoginPage,
+    ResetPasswordPage,
+    SignupPage,
+    ReqPage,
+    CoursePage
   ],
   imports: [
     BrowserModule,
@@ -36,12 +48,19 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     LoginPage,
-    LearnPage
+    LearnPage,
+    LoginPage,
+    ResetPasswordPage,
+    SignupPage,
+    ReqPage,
+    CoursePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    Facebook
   ]
 })
 export class AppModule {}
