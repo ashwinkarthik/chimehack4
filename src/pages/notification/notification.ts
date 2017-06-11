@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import * as _ from 'underscore';
 import { Http } from '@angular/http';
 import values from 'object.values';
@@ -23,9 +23,11 @@ export class NotificationPage {
   keys1: any;
   messageList: any;
   pushMessage: string = "push message will be displayed here";
+  public questionList: Array<Object>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, private alertCtrl: AlertController) {
     this.materialsInfo = this.getMaterialsInfo();
+    this.questionList = [];
     this.categoriesList = this.getCategoryList(this.materialsInfo);
     this.users = {};
     //this.userList = []
@@ -117,4 +119,30 @@ export class NotificationPage {
   getMaterialsListForCategory(category) {
       return _.values(this.materialsInfo[category]);
   }
+  public askHelp() {
+          let alert = this.alertCtrl.create({
+              title: "Ask the Mentor",
+              message: "Enter your Question to be sent along with screenshot.",
+              inputs: [
+                  {
+                      name: "question",
+                      placeholder: "Question"
+                  }
+              ],
+              buttons: [
+                  {
+                      text: "Cancel"
+                  },
+                  {
+                      text: "Save",
+                      handler: data => {
+                          this.questionList.push({
+                              name: data.question
+                          });
+                      }
+                  }
+              ]
+          });
+          alert.present();
+      }
 }
