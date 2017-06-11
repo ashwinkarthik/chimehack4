@@ -9,6 +9,7 @@ import { NgZone } from '@angular/core';
 import firebase from 'firebase';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {SignupPage} from '../pages/signup/signup';
+import { CoursePage } from '../pages/course/course';
 import {ReqPage} from '../pages/req/req';
 
 @Component({
@@ -54,5 +55,9 @@ export class MyApp {
 
   go_to_login(){
     this.nav.setRoot(LoginPage);
+  }
+
+  go_to_course(){
+    this.nav.setRoot(CoursePage);
   }
 }

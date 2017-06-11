@@ -8,6 +8,8 @@ import { IonicStorageModule } from '@ionic/storage'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { CoursePage } from '../pages/course/course';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AuthProvider } from '../providers/auth/auth';
@@ -31,7 +33,8 @@ export const firebaseConfig = {
     LoginPage,
     ResetPasswordPage,
     SignupPage,
-    ReqPage
+    ReqPage,
+    CoursePage
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ export const firebaseConfig = {
     ResetPasswordPage,
     SignupPage,
     ReqPage,
+    CoursePage
   ],
   providers: [
     StatusBar,
