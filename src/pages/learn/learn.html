@@ -25,10 +25,9 @@
             </div>
             <ion-row wrap>
                 <ion-col col-6 *ngFor="let material of getMaterialsListForCategory(category)">
-                        <img src="{{ material.display_image_link }}"/>
+                        <img src="{{ material.display_image_link }}" (click)="takeCourse(material.materials_link)"/>
                         <span class="lesson-title">{{ material.name }}</span>
                 </ion-col>
             </ion-row>
-        </div>
-        
+        </div>        
 </ion-content>

@@ -10,7 +10,8 @@ import { LoginPage } from '../pages/login/login';
 import { LearnPage } from '../pages/learn/learn';
 import { CoursePage } from '../pages/course/course';
 import { NotificationPage } from '../pages/notification/notification';
-
+import { ProfilePage } from '../pages/profile/profile';
+import { RecommendationsPage } from '../pages/recommendations/recommendations';
 
 import { AngularFireModule } from 'angularfire2';
 import { AuthProvider } from '../providers/auth/auth';
@@ -39,7 +40,9 @@ export const firebaseConfig = {
     SignupPage,
     ReqPage,
     CoursePage,
-    NotificationPage
+    NotificationPage,
+    ProfilePage,
+    RecommendationsPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,9 @@ export const firebaseConfig = {
     SignupPage,
     ReqPage,
     CoursePage,
-    NotificationPage
+    NotificationPage,
+    ProfilePage,
+    RecommendationsPage
   ],
   providers: [
     StatusBar,

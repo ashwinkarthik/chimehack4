@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {SignupPage} from '../pages/signup/signup';
 import { CoursePage } from '../pages/course/course';
+import { ProfilePage } from '../pages/profile/profile';
 import {ReqPage} from '../pages/req/req';
 import {Push, PushObject, PushOptions} from "@ionic-native/push";
 import {DetailsPage} from "../pages/details/details";
@@ -18,7 +19,7 @@ import { NotificationPage } from '../pages/notification/notification';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = NotificationPage;
+  rootPage:any = LoginPage;
   notificationLists:any;
   zone:NgZone;
   @ViewChild(Nav) nav: Nav;
@@ -39,10 +40,10 @@ export class MyApp {
   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
   this.zone.run( () => {
     if (!user) {
-      this.rootPage = NotificationPage;
+      this.rootPage = LoginPage;
       unsubscribe();
     } else {
-      this.rootPage = NotificationPage;
+      this.rootPage = LoginPage;
       unsubscribe();
     }
   });
@@ -117,16 +118,12 @@ export class MyApp {
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
   }
 
-  go_to_login(){
-    this.nav.setRoot(LoginPage);
-  }
-
   go_to_learn(){
     this.nav.setRoot(LearnPage);
   }
 
-  go_to_course(){
-    this.nav.setRoot(CoursePage);
+  go_to_profile(){
+    this.nav.setRoot(ProfilePage);
   }
 
   go_to_notification(){
