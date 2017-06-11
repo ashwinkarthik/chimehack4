@@ -2,15 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { LearnPage } from '../pages/learn/learn';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = LearnPage;
   @ViewChild(Nav) nav: Nav;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -20,14 +19,15 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-  }
 
-  go_to_home(Page){
-    this.nav.setRoot(HomePage);
   }
  
   go_to_login(){
     this.nav.setRoot(LoginPage);  
+  }
+
+  go_to_learn(){
+    this.nav.setRoot(LearnPage);  
   }
 }
 
